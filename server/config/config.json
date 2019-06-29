@@ -8,5 +8,8 @@
     "dev": {
       "uri": "mongodb://localhost/dabadoc_db"
     }
+  },
+  "jwt": {
+    "secret": "key@7dbdbe6d892386ee5685720d30f191e0"
   }
 }
