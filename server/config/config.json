@@ -1,0 +1,12 @@
+{
+  "port": 3000,
+  "host": "localhost",
+  "db": {
+    "prod": {
+      "uri": "mongodb://root:root001@ds343887.mlab.com:43887/dabadoc_db"
+    },
+    "dev": {
+      "uri": "mongodb://localhost/dabadoc_db"
+    }
+  }
+}
