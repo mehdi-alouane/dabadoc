@@ -13,6 +13,10 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  questions: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Question'
+  }],
   created_At: {
     type: Date,
     default: Date.now()
@@ -21,7 +25,7 @@ const userSchema = new Schema({
 
 userSchema.plugin(uniqueValidator)
 
-const User = mongoose.model('User', userSchema)
+const User = mongoose.model('User', userSchema, 'users')
 
 module.exports = {
   User
