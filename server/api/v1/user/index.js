@@ -1,14 +1,16 @@
 const userRouter = require('express').Router()
 const jwt = require('express-jwt')
+const validate = require('express-validation')
 const config = require('../../../config/config.json')
+const validateUser = require('./validateUser')
 
 const registerCtrl = require('./register/registerCtrl')
 const loginCtrl = require('./login/loginCtrl')
 
 userRouter.route('/register')
-  .post(registerCtrl)
+  .post(validate(validateUser.register), registerCtrl)
 userRouter.route('/login')
-  .post(loginCtrl)
+  .post(validate(validateUser.login), loginCtrl)
 
 userRouter.use(jwt({
   secret: config.jwt.secret,
