@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
 
     if (!user) {
       return res.status(401).json({
-        msg: 'something wrong, please try again!'
+        msg: 'Unauthorized!'
       })
     }
 

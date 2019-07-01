@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
     if (!user) {
       return res.status(401).json({
         auth: false,
-        msg: 'Something wrong please try again!'
+        msg: 'Unauthorized!'
       })
     }
 
@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
     if (!isPasswordValid) {
       return res.status(401).json({
         auth: false,
-        msg: 'Something wrong please try again!'
+        msg: 'Unauthorized!'
       })
     }
 
