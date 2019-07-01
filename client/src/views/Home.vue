@@ -7,10 +7,12 @@
       <div class="columns is-multiline is-mobile">
         <div
           v-for="question in questions"
-          :key="question.id"
+          :key="question._id"
           class="column is-4"
         >
-          <question-card :question="question" />
+          <question-card
+            :question="question"
+          />
         </div>
       </div>
     </div>
@@ -40,7 +42,7 @@ export default {
     async getQuestionsByDistance () {
       try {
         const questions = await this.axios.get(`/question/list/${this.coordinates}`)
-        this.questions = questions.data
+        this.questions = questions.data.AllQuestionsByDistance
       } catch (err) {
         console.log(err.message)
       }
