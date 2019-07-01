@@ -8,7 +8,7 @@
 
     <div class="card-content">
       <div class="content">
-        {{ question.title }}
+        {{ question.content }}
       </div>
     </div>
 
@@ -26,6 +26,7 @@
       <router-link
         to=""
         class="card-footer-item"
+        @click.native="addToFavourites"
       >
         <span class="icon">
           <i class="fa fa-thumbs-up" />
@@ -43,6 +44,21 @@ export default {
     question: {
       type: String,
       default: ''
+    }
+  },
+  methods: {
+    async addToFavourites () {
+      const req = await this.axios.post('/favourite/add', {
+        userID: this.$store.state.user._id,
+        questionID: this.question._id
+      })
+      console.log(req)
+    },
+    async removeFromFavourites () {
+      this.$store.dispatch('removeFromFavouriteQuestions', {
+        userID: this.$store.state.user._id,
+        questionID: this.question._id
+      })
     }
   }
 }
