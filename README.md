@@ -59,6 +59,8 @@ npm install
     - MongoDB is an object-oriented, simple, dynamic, and scalable NoSQL database. 
   * Cors 🚪️
     - This will allow us to secure communication between the front-end and back-end servers. 
+  * JsonWebToken (jwt) ⚡️
+    - is a compact, URL-safe means of representing claims to be transferred between two parties.
   * Express-validation ✔️
     - is a middleware that validates the body, params, query, headers and cookies of a request and returns a response with errors; if any of the configured validation rules fail.
 
