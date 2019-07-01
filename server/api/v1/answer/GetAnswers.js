@@ -12,11 +12,17 @@ module.exports = async (req, res) => {
       .select('answers -_id')
 
     if (!answers) {
-      console.log('something went wront!')
+      console.log('something went wrong!')
+      return res.status(400).json({
+        msg: 'something wrong, we could not find the answers'
+      })
     }
 
     return res.status(200).send(answers)
   } catch (err) {
-    console.log(err.message)
+    console.log(`GetAnswersCtrl: ${err.message}`)
+    return res.status(500).json({
+      msg: err.message
+    })
   }
 }
