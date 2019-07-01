@@ -20,7 +20,11 @@ const userSchema = new Schema({
   created_At: {
     type: Date,
     default: Date.now()
-  }
+  },
+  favoriteQuestions: [{
+    ref: 'Question',
+    type: Schema.Types.ObjectId
+  }]
 })
 
 userSchema.plugin(uniqueValidator)
