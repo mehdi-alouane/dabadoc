@@ -16,7 +16,7 @@
 
         <div class="navbar-end">
           <router-link
-            to=""
+            :to="{ name: 'favourite' }"
             class="navbar-item"
           >
             <span class="icon">
