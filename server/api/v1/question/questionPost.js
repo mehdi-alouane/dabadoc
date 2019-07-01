@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
 
     await newQuestion.save()
     const PostQuestion = await User.updateOne({ _id: userID }, {
-      $push: {
+      $addToSet: {
         questions: newQuestion._id
       }
     })
@@ -23,10 +23,14 @@ module.exports = async (req, res) => {
     console.log(PostQuestion)
 
     if (!PostQuestion) {
-      return res.send('something went wrong')
+      return res.status(400).json({
+        msg: 'something went wrong'
+      })
     }
 
-    return res.status(200).send('question added successfully')
+    return res.status(200).json({
+      msg: 'question added successfully'
+    })
   } catch (err) {
     console.log(`QuestionPostCtrl Error: ${err.message}`)
     return res.status(500).json({
