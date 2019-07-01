@@ -5,12 +5,14 @@ const homeView = () => import('./views/Home.vue')
 const registerView = () => import('./views/Register.vue')
 const loginView = () => import('./views/Login.vue')
 const questionView = () => import('./views/Question.vue')
+const answerView = () => import('./views/Answer.vue')
 
 const routes = [
   { path: '/', name: 'home', component: homeView },
   { path: '/register', name: 'register', component: registerView },
   { path: '/login', name: 'login', component: loginView },
-  { path: '/question', name: 'question', component: questionView }
+  { path: '/question', name: 'question', component: questionView },
+  { path: '/answer/:questionID', name: 'answer', component: answerView }
 ]
 
 Vue.use(Router)
