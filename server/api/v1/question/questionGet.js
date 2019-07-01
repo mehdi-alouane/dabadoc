@@ -20,10 +20,6 @@ module.exports = async (req, res) => {
           }
         }
       })
-      .populate({
-        path: 'answers',
-        select: '_id content'
-      })
 
     return res.status(200).json(AllQuestionsByDistance)
   } catch (err) {
