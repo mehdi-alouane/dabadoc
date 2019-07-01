@@ -10,15 +10,15 @@ module.exports = async (req, res) => {
 
     await newAnswer.save()
     const PostQuestion = await Question.updateOne({ _id: questionID }, {
-      $push: {
+      $addToSet: {
         answers: newAnswer._id
       }
     })
 
-    console.log(PostQuestion)
-
     if (!PostQuestion) {
-      return res.send('something went wrong')
+      return res.status(400).json({
+        msg: 'something went wrong!'
+      })
     }
 
     return res.status(200).send('answer added successfully')
