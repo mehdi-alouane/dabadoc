@@ -43,6 +43,7 @@ export default {
       try {
         const questions = await this.axios.get(`/question/list/${this.coordinates}`)
         this.questions = questions.data.AllQuestionsByDistance
+        // console.log(questions)
       } catch (err) {
         console.log(err.message)
       }
