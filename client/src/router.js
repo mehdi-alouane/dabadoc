@@ -14,8 +14,8 @@ const routes = [
   { path: '/register', name: 'register', component: registerView },
   { path: '/login', name: 'login', component: loginView },
   { path: '/question', name: 'question', component: questionView },
-  { path: '/answer/:questionID', name: 'answer', component: answerView },
-  { path: '/favourites', name: 'favourite', component: favouritesView }
+  { path: '/answer/:questionID', name: 'answer', component: answerView, meta: { requiresAuth: true } },
+  { path: '/favourites', name: 'favourite', component: favouritesView, meta: { requiresAuth: true } }
 ]
 
 Vue.use(Router)
