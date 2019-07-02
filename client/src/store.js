@@ -51,15 +51,15 @@ export default new Vuex.Store({
 
     async getFavouriteQuestions ({ commit }, userID) {
       const { data } = await axios.get(`/favourite/list/${userID}`)
-      console.log(data)
-      commit('setFavouriteQuestions', data)
+      // console.log(data)
+      commit('setFavouriteQuestions', data.questions)
     },
     async removeFromFavouriteQuestions ({ commit }, { userID, questionID }) {
-      const { data } = await axios.post(`/favourite/delet-question`, {
+      const { data } = await axios.post(`/favourite/delete-question`, {
         userID,
         questionID
       })
-      console.log(data)
+      // console.log(data)
       commit('setFavouriteQuestions', data)
     }
   },
