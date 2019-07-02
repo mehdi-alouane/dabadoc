@@ -4,12 +4,13 @@ module.exports = async (req, res) => {
   try {
     const { userID } = req.params
     const favouriteQuestions = await User
-      .find({ _id: userID }, '_id')
+      .findOne({ _id: userID })
       .populate({
         path: 'questions',
         model: 'Question',
         select: '_id title content location'
       })
+      .select('questions')
       .exec()
 
     if (!favouriteQuestions) {
@@ -17,8 +18,9 @@ module.exports = async (req, res) => {
         msg: 'Enter a valide question'
       })
     }
+    console.log(favouriteQuestions)
 
-    return res.status(200).json(...favouriteQuestions)
+    return res.status(200).json(favouriteQuestions)
   } catch (err) {
     console.log(`AddToFavouritesCtrl: ${err.message}`)
     return res.status(500).json({
