@@ -1,6 +1,8 @@
 # Web Coding Challenge
 DabaDoc's Web Coding Challenge
 
+# [API :tada:](https://github.com/mehdi-alouane/dabadoc/blob/master/server/README.md)
+
 ## Functional spec coverage
   * As a User, I can sign up using my email & password ✔️
   * As a User, I can sign in using my email & password ✔️
