@@ -4,6 +4,16 @@
       <div class="navbar-menu">
         <div class="navbar-start">
           <router-link
+            :to="{ name: 'home' }"
+            class="navbar-item"
+          >
+            <span class="icon">
+              <i class="fa fa-home" />
+            </span>
+            <span>Home</span>
+          </router-link>
+
+          <router-link
             :to="{ name: 'question' }"
             class="navbar-item"
           >
