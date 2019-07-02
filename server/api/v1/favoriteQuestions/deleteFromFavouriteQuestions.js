@@ -2,12 +2,12 @@ const { User } = require('../user/userModel')
 
 module.exports = async (req, res) => {
   try {
-    const { userID, quesionID } = req.body
+    const { userID, questionID } = req.body
 
     const questions = await User
       .updateOne({ _id: userID }, {
         $pull: {
-          favoriteQuestions: quesionID
+          favoriteQuestions: questionID
         }
       })
       .exec()
