@@ -14,7 +14,8 @@
 
     <footer class="card-footer">
       <router-link
-        :to="{ name: 'answer', params: { questionID: question._id } }"
+        :to="{ name: 'answer',
+               params: { questionID: question._id } }"
         class="card-footer-item"
       >
         <span class="icon">
@@ -24,6 +25,7 @@
       </router-link>
 
       <router-link
+        v-if="!showRemoveButton"
         to=""
         class="card-footer-item"
         @click.native="addToFavourites"
@@ -32,6 +34,19 @@
           <i class="fa fa-thumbs-up" />
         </span>
         <span>Like</span>
+      </router-link>
+
+      <!-- remove button -->
+      <router-link
+        v-if="showRemoveButton"
+        to=""
+        class="card-footer-item is-remove"
+        @click.native="removeFromFavourites"
+      >
+        <span class="icon">
+          <i class="fa fa-minus-circle" />
+        </span>
+        <span>Remove</span>
       </router-link>
     </footer>
   </div>
@@ -44,6 +59,10 @@ export default {
     question: {
       type: String,
       default: ''
+    },
+    showRemoveButton: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -63,3 +82,8 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.is-remove
+  color: red
+</style>
