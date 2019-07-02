@@ -68,14 +68,14 @@ export default {
   methods: {
     async addToFavourites () {
       const req = await this.axios.post('/favourite/add', {
-        userID: this.$store.state.user._id,
+        userID: this.$store.state.user.id,
         questionID: this.question._id
       })
       console.log(req)
     },
     async removeFromFavourites () {
       this.$store.dispatch('removeFromFavouriteQuestions', {
-        userID: this.$store.state.user._id,
+        userID: this.$store.state.user.id,
         questionID: this.question._id
       })
     }
